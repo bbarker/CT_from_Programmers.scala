@@ -1,0 +1,53 @@
+
+$ mill -i examples.repl
+Compiling (synthetic)/ammonite/predef/interpBridge.sc
+Compiling (synthetic)/ammonite/predef/DefaultPredef.sc
+Compiling /home/brandon/workspace/CT_from_Programmers.scala/build.sc
+[30/30] examples.repl 
+Loading...
+Compiling (synthetic)/ammonite/predef/interpBridge.sc
+Compiling (synthetic)/ammonite/predef/replBridge.sc
+Compiling (synthetic)/ammonite/predef/DefaultPredef.sc
+Welcome to the Ammonite Repl 1.0.3
+(Scala 2.12.4 Java 1.8.0_172)
+If you like Ammonite, please support our development at www.patreon.com/lihaoyi
+@ import cats._, cats.data._, cats.implicits._ 
+import cats._, cats.data._, cats.implicits._
+
+@ 1 === "foo" 
+cmd1.sc:1: type mismatch;
+ found   : String("foo")
+ required: Int
+val res1 = 1 === "foo"
+                 ^
+Compilation Failed
+
+@ val f: Double => Int = x => x.toInt 
+f: Double => Int = ammonite.$sess.cmd1$$$Lambda$1952/668225854@7aa5292d
+
+@ val f: Double => Float = x => x.toFloat 
+f: Double => Float = ammonite.$sess.cmd2$$$Lambda$1964/325900059@78b9d614
+
+@ val g: Float => Int = x => x.toInt 
+g: Float => Int = ammonite.$sess.cmd3$$$Lambda$1968/1048714170@83ffa7b
+
+@ val h: Int => String = x => x.ToString 
+cmd4.sc:1: value ToString is not a member of Int
+val h: Int => String = x => x.ToString
+                              ^
+Compilation Failed
+
+@ val h: Int => String = x => x.toString 
+h: Int => String = ammonite.$sess.cmd4$$$Lambda$1984/635268041@52a8fca9
+
+@ g compose f === g compose f 
+cmd5.sc:1: value === is not a member of Double => Float
+val res5 = g compose f === g compose f
+                       ^
+Compilation Failed
+
+@ (g compose f) === (g compose f) 
+cmd5.sc:1: value === is not a member of Double => Int
+val res5 = (g compose f) === (g compose f)
+                         ^
+Compilation Failed

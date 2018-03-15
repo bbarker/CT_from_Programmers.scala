@@ -1,4 +1,5 @@
 project/boot
+out
 target
 .ensime
 .ensime_lucene
